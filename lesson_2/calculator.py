@@ -1,7 +1,7 @@
 import json
 
 with open('calculator_messages.json', 'r') as file:
-    data = json.load(file)
+    MESSAGES = json.load(file)
 
 
 def prompt(message):
@@ -17,29 +17,29 @@ def invalid_number(number_str):
 
 def run_calculation():
     # 1. Ask for the first number
-    prompt(data["first_number"])
+    prompt(MESSAGES[lang]["first_number"])
     number1 = input()
 
     while invalid_number(number1):
-        prompt(data["invalid_number"])
+        prompt(MESSAGES[lang]["invalid_number"])
         number1 = input()
 
     # 2. Ask for the second number
-    prompt(data["second_number"])
+    prompt(MESSAGES[lang]["second_number"])
     number2 = input()
 
     while invalid_number(number2):
-        prompt(data["invalid_number"])
+        prompt(MESSAGES[lang]["invalid_number"])
         number2 = input()
 
     prompt(f"{number1} & {number2}")
 
     # 3. Ask which operation to perform
-    prompt(data["operations_options"])
+    prompt(MESSAGES[lang]["operations_options"])
     operation = input()
 
     while operation not in ["1", "2", "3", "4"]:
-        prompt(data["invalid_operation"])
+        prompt(MESSAGES[lang]["invalid_operation"])
         operation = input()
 
     # 4. Carry out calculation
@@ -54,17 +54,29 @@ def run_calculation():
             result = int(number1) / int(number2)
 
     # 5. Print the result
-    prompt(f"{data["result"]}{result}")
+    prompt(f"{MESSAGES[lang]["result"]}{result}")
 
-prompt(data["welcome"])
+lang = "en" # default language is English
+
+prompt(MESSAGES["language"])
+language = input()
+
+while language not in ["1", "2"]:
+    prompt(MESSAGES["invalid_language"])
+    language = input()
+
+if language == "2":
+    lang = "sv"
+
+prompt(MESSAGES[lang]["welcome"])
 
 while True:
     run_calculation()
-    prompt(data["run_again"])
+    prompt(MESSAGES[lang]["run_again"])
     answer = input()
 
     while answer not in ["y", "n"]:
-        prompt(data["invalid_answer"])
+        prompt(MESSAGES[lang]["invalid_answer"])
         answer = input()
 
     if answer == "n":

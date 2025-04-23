@@ -1,11 +1,26 @@
 {
-    "welcome" : "Welcome to Calculator!",
-    "first_number" : "What's the first number?",
-    "second_number" : "What's the second number?",
-    "invalid_number" : "Hmm... that doesn't look like a valid number.",
-    "operations_options" : "What operation would you like to perform?\n1) Add \n2) Subtract \n3) Multiply \n4) Divide",
-    "invalid_operation" : "You must choose 1, 2, 3, or 4",
-    "result" : "The result is: ",
-    "run_again" : "Do you want to perform another calculation? (y/n)",
-    "invalid_answer" : "You must enter 'y' or 'n'"
+    "language" : "Choose 1 for English | Välj 2 för svenska",
+    "invalid_language" : "1 for English | 2 för Svenska",
+    "en" : {
+        "welcome" : "Welcome to Calculator!",
+        "first_number" : "What's the first number?",
+        "second_number" : "What's the second number?",
+        "invalid_number" : "Hmm... that doesn't look like a valid number.",
+        "operations_options" : "What operation would you like to perform?\n1) Add \n2) Subtract \n3) Multiply \n4) Divide",
+        "invalid_operation" : "You must choose 1, 2, 3, or 4",
+        "result" : "The result is: ",
+        "run_again" : "Do you want to perform another calculation? (y/n)",
+        "invalid_answer" : "You must enter 'y' or 'n'"
+    },
+    "sv" : {
+        "welcome" : "Välkommen till Kalkylator!",
+        "first_number" : "Ange första numret?",
+        "second_number" : "Ange andra numret?",
+        "invalid_number" : "Hmm... det där verkar vara ett ogiltigt nummer.",
+        "operations_options" : "Vilken uträkning vill du göra?\n1) Addera \n2) Subtrahera \n3) Multiplicera \n4) Dela",
+        "invalid_operation" : "Du måste välja 1, 2, 3, eller 4",
+        "result" : "Resultatet är: ",
+        "run_again" : "Vill du göra en till uträkning? (y/n)",
+        "invalid_answer" : "Du måste svara 'y' eller 'n'"
+    }
 }
