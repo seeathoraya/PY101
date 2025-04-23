@@ -1,3 +1,9 @@
+import json
+
+with open('calculator_messages.json', 'r') as file:
+    data = json.load(file)
+
+
 def prompt(message):
     print(f"==> {message}")
 
@@ -11,30 +17,29 @@ def invalid_number(number_str):
 
 def run_calculation():
     # 1. Ask for the first number
-    prompt("What's the first number?")
+    prompt(data["first_number"])
     number1 = input()
 
     while invalid_number(number1):
-        prompt("Hmm... that doesn't look like a valid number.")
+        prompt(data["invalid_number"])
         number1 = input()
 
     # 2. Ask for the second number
-    prompt("What's the second number?")
+    prompt(data["second_number"])
     number2 = input()
 
     while invalid_number(number2):
-        prompt("Hmm... that doesn't look like a valid number.")
+        prompt(data["invalid_number"])
         number2 = input()
 
     prompt(f"{number1} & {number2}")
 
     # 3. Ask which operation to perform
-    prompt("What operation would you like to perform?\n"
-        "1) Add \n2) Subtract \n3) Multiply \n4) Divide")
+    prompt(data["operations_options"])
     operation = input()
 
     while operation not in ["1", "2", "3", "4"]:
-        prompt("You must choose 1, 2, 3, or 4")
+        prompt(data["invalid_operation"])
         operation = input()
 
     # 4. Carry out calculation
@@ -49,17 +54,17 @@ def run_calculation():
             result = int(number1) / int(number2)
 
     # 5. Print the result
-    prompt(f"The result is: {result}")
+    prompt(f"{data["result"]}{result}")
 
-prompt("Welcome to Calculator!")
+prompt(data["welcome"])
 
 while True:
     run_calculation()
-    prompt("Do you want to perform another calculation? (y/n)")
+    prompt(data["run_again"])
     answer = input()
 
     while answer not in ["y", "n"]:
-        prompt("You must enter 'y' or 'n'")
+        prompt(data["invalid_answer"])
         answer = input()
 
     if answer == "n":

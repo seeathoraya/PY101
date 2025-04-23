@@ -1,0 +1,11 @@
+{
+    "welcome" : "Welcome to Calculator!",
+    "first_number" : "What's the first number?",
+    "second_number" : "What's the second number?",
+    "invalid_number" : "Hmm... that doesn't look like a valid number.",
+    "operations_options" : "What operation would you like to perform?\n1) Add \n2) Subtract \n3) Multiply \n4) Divide",
+    "invalid_operation" : "You must choose 1, 2, 3, or 4",
+    "result" : "The result is: ",
+    "run_again" : "Do you want to perform another calculation? (y/n)",
+    "invalid_answer" : "You must enter 'y' or 'n'"
+}
