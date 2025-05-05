@@ -1,6 +1,6 @@
 import random
 
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard']
 
 def prompt(message):
     print(f"==> {message}")
@@ -8,13 +8,27 @@ def prompt(message):
 def display_winner(player, computer):
     prompt(f"You chose {player}, computer chose {computer}.")
 
-    if ((player == "rock" and computer == "scissors") or
-        (player == "paper" and computer == "rock") or
-        (player == "scissors" and computer == "paper")):
+    if ((player == "rock" and 
+         (computer == "scissors" or computer == "lizard")) or
+        (player == "paper" and 
+         (computer == "rock" or computer == "spock")) or
+        (player == "scissors" and 
+         (computer == "paper" or computer == "lizard")) or
+        (player == "spock" and 
+         (computer == "rock" or computer == "scissors")) or
+        (player == "lizard" and 
+         (computer == "paper" or computer == "spock"))):
         prompt("You win!")
-    elif ((player == "rock" and computer == "paper") or
-        (player == "paper" and computer == "scissors") or
-        (player == "scissors" and computer == "rock")):
+    elif ((computer == "rock" and 
+         (player == "scissors" or player == "lizard")) or
+        (computer == "paper" and 
+         (player == "rock" or player == "spock")) or
+        (computer == "scissors" and 
+         (player == "paper" or player == "lizard")) or
+        (computer == "spock" and 
+         (player == "rock" or player == "scissors")) or
+        (computer == "lizard" and 
+         (player == "paper" or player == "spock"))):
         prompt("Computer wins!")
     else:
         prompt("It's a tie!")
