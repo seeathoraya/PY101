@@ -5,6 +5,19 @@ VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard']
 def prompt(message):
     print(f"==> {message}")
 
+def convert_choice(choice):
+    match choice:
+        case 'r':
+            return 'rock'
+        case 'p':
+            return 'paper'
+        case 'sc':
+            return 'schissors'
+        case 'sp':
+            return 'spock'
+        case 'l':
+            return 'lizard'
+
 def display_winner(player, computer):
     prompt(f"You chose {player}, computer chose {computer}.")
 
@@ -35,11 +48,11 @@ def display_winner(player, computer):
 
 while True:
     prompt(f"Choose one: {', '.join(VALID_CHOICES)}")
-    choice = input()
+    choice = convert_choice(input())
 
-    while choice not in VALID_CHOICES:
+    while choice not in (VALID_CHOICES):
         prompt("That's not a valid choice")
-        choice = input()
+        choice = convert_choice(input())
 
     computer_choice = random.choice(VALID_CHOICES)
 
@@ -54,5 +67,5 @@ while True:
         else:
             prompt("That's not a valid choice")
     
-    if answer[0] == 'n':
+    if answer.startswith('n'):
         break
