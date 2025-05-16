@@ -24,6 +24,8 @@ def convert_choice(string):
             return 'spock'
         case 'l':
             return 'lizard'
+        case _:
+            return string
 
 def player_wins(player, computer):
     return computer in WINNING_COMBOS[player]
